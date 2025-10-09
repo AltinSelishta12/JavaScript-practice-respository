@@ -15,21 +15,40 @@
             min-height: 100vh;
             width: 100%;
         }
-        #TextInput.active{
+        #Form{
+            box-shadow: 4px 4px 16px #616161;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 15px;
+            width: 30%;
+            height: 70vh;
+            border: 1px solid black;
+        }
+        #Name.active{
             border: 2px solid red;
         }
-        ul li{
-            list-style: none;
+        label{
+            font-family: sans-serif;
+        }
+        #SubmitBtn{
+            padding: 16px;
+            font-family: sans-serif;
+            width: 30%;
+        }
+        #ShowText{
+            font-family: sans-serif;
+            color: red;
         }
     </style>
+        <form id="Form" action="">
+                <input type="text" id="Name" name="Emri" placeholder="Emri juaj" autocomplete="off">
+                <input type="text" id="Age" name="Mosha" placeholder="Mosha juaj" autocomplete="off">
+                <p id="ShowText"></p>
 
-    <form id="Form" action="">
-            <input type="text" id="TextInput" placeholder="Type Something" autocomplete="off">
-            <button id="addBtn">Add a Task</button>
+            <button id="SubmitBtn">Send</button>
         </form>
-   <ul class="list"></ul>
-
-   <button class="resetBtn">Reset</button>
     <script src="index.js"></script>
 </body>
 </html>
