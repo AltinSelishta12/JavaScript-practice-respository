@@ -9,31 +9,27 @@
     <style>
         body{
             display: flex;
-            justify-content: sp;
+            justify-content: center;
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
             width: 100%;
         }
-        .container{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
+        #TextInput.active{
+            border: 2px solid red;
         }
-        .item{
-            background-color: red;
-            width: 100px;
-            height: 100px; 
-        }
-        .item.active{
-            background-color: green;
+        ul li{
+            list-style: none;
         }
     </style>
 
-    <div class="container"></div>
-    <button id="Clickbtn">Click</button>
+    <form id="Form" action="">
+            <input type="text" id="TextInput" placeholder="Type Something" autocomplete="off">
+            <button id="addBtn">Add a Task</button>
+        </form>
+   <ul class="list"></ul>
+
+   <button class="resetBtn">Reset</button>
     <script src="index.js"></script>
 </body>
 </html>

@@ -1,21 +1,39 @@
-const container = document.querySelector(".container");
-const items = document.querySelectorAll(".item");
-const Clickbtn = document.querySelector("#Clickbtn");
+const Form = document.querySelector('#Form');
+const TextInput = document.querySelector("#TextInput");
+const addBtn = document.querySelector("#addBtn");
+const list = document.querySelector(".list");
+const resetBtn = document.querySelector(".resetBtn");
 
 
+Form.addEventListener("submit", function(e){
+     e.preventDefault();
+   if(TextInput.value.trim() === ""){
+     e.preventDefault();
+     TextInput.classList.add("active");
 
-for(let i = 0; i <= 4; i++){
-    const box = document.createElement("div");
-    container.appendChild(box);
-    box.classList.add("item");
-}
-
-Clickbtn.addEventListener('click', function(){
-    const items = document.querySelectorAll(".item");
-    items.forEach(item => {
-        item.classList.toggle("active");
-    })
+     setTimeout(() =>{
+        TextInput.classList.remove("active");
+     }, 1000);
+     return
+   }
 })
+
+ addBtn.addEventListener("click", function(e){
+    e.preventDefault();
+    const item = document.createElement("li");
+    list.appendChild(item);
+
+    item.textContent = TextInput.value;
+
+    TextInput.value = "";
+})
+
+resetBtn.addEventListener("click", function(){
+    list.innerHTML = "";
+})
+const item = document.createElement("li");
+item.textContent = TextInput.value;
+
 
 
 
