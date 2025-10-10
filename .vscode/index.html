@@ -3,52 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ushtrime Ne JavaScript</title>
-</head>
-<body>
+    <title>Ushtrime ne JavaScript</title>
+
     <style>
         body{
+            background-color: white;
+            color: black;
+        }
+        body.active{
+            background-color: black;
+            color: #fff;
+        }
+        #btn{
+            width: 5%;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-            width: 100%;
         }
-        #Form{
-            box-shadow: 4px 4px 16px #616161;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 15px;
-            width: 30%;
-            height: 70vh;
-            border: 1px solid black;
+        #sun{
+            display: none;
         }
-        #Name.active{
-            border: 2px solid red;
+        #sun.active{
+            display: block;
         }
-        label{
-            font-family: sans-serif;
+        #moon{
+            display: block;
         }
-        #SubmitBtn{
-            padding: 16px;
-            font-family: sans-serif;
-            width: 30%;
-        }
-        #ShowText{
-            font-family: sans-serif;
-            color: red;
+        #moon.hide{
+            display: none;
         }
     </style>
-        <form id="Form" action="">
-                <input type="text" id="Name" name="Emri" placeholder="Emri juaj" autocomplete="off">
-                <input type="text" id="Age" name="Mosha" placeholder="Mosha juaj" autocomplete="off">
-                <p id="ShowText"></p>
+</head>
 
-            <button id="SubmitBtn">Send</button>
-        </form>
+<body>
+        <h2>Hello World By JS</h2>
+    <button id="btn">
+        <p id="moon">&#127769;</p>
+        <p id="sun">&#9728;</p>
+    </button>
+
     <script src="index.js"></script>
 </body>
 </html>
