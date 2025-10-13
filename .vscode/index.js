@@ -1,36 +1,26 @@
 //Js practice
+const Form = document.querySelector("#Form");
+const Comment = document.querySelector("#Comment");
+const addTask = document.querySelector("#addTask");
+const list = document.querySelector(".list");
+const removeTask = document.querySelector("#removeTask");
 
-const container = document.querySelector(".container");
-const clickBtn = document.querySelector("#clickBtn");
-const addBtn = document.querySelector("#addBtn");
-const deleteBtn = document.querySelector("#deleteBtn");
-for(let i = 0; i <= 2; i++){
-    const box = document.createElement("div");
-    box.classList.add("active");
-    container.appendChild(box);
-}
+Form.addEventListener("submit", function(event){
 
-clickBtn.addEventListener("click", function(){
-    const boxes = document.querySelectorAll(".active");
+     if(Comment.value.trim() === ""){
+          event.preventDefault();
+          alert("Please fill the Comment field");
+          return;
+     }
+});
 
-    boxes.forEach(box =>{
-      box.classList.toggle("change");  
-    })
-})
+addTask.addEventListener("click", function(){
+     const li = document.createElement("li");
+     list.appendChild(li);
+     li.classList.add("active");
 
-addBtn.addEventListener("click", function(){
-    const box = document.createElement("div");
-    box.classList.add("active");
-    container.appendChild(box);
-})
+    li.textContent = Comment.value;
 
-deleteBtn.addEventListener("click", function(){
-    const boxes = document.querySelectorAll(".active");
-     
-    if(boxes.length > 0){
-        boxes[0].remove();
-    }
-    else{
-        alert("All cards deleted");
-    }  
-})
+    Comment.value = "";
+
+});

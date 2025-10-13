@@ -14,54 +14,35 @@
             width: 100%;
             min-height: 100vh;
         }
-        .container{
-            background-color: rgba(0, 0, 0, 0.527);
-            width: 95%;
-            height: auto;
-            display: grid;
-            place-items: center;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            
+        form{
+            background-color: rgb(124, 124, 124);
+            width: 70%;
+            height: 70vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
         }
-       .active{
-            background-color: rgba(197, 197, 197, 0.205);
-            width: 250px;
-            height: 250px;
-       }
-       button{
-        width: 10%;
-        height: 8vh;
-        background-color: black;
-        color: #fff;
-        transition: background-color 0.3s;
-       }
-       button:hover{
-        background-color: rgba(0, 0, 0, 0.267);
-       }
-       .active.change{
-        background-color: rgba(63, 63, 63, 0.486);
-        border-radius: 45px;
-       }
-       .buttons{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-        position: fixed;
-        bottom: 3%;
-       }
+        ul{
+            background-color: rgb(240, 240, 240);
+            width: 70%;
+            height: 35vh;
+            border: 1px solid black;
+        }
+        ul li.active{
+            list-style: none;
+            font-family: sans-serif;
+            font-size: 1.2rem;
+            color: black;
+        }
     </style>
 </head>
 <body>
-     
-    <div class="container"></div>
-    <div class="buttons">
-        <button id="clickBtn">Change</button>
-        <button id="addBtn">Add a Card</button>
-        <button id="deleteBtn">Delete a Card</button>
-    </div>
+   <form id="Form" action="">
+    <textarea name="comment" id="Comment" placeholder="Write a Comment..." style="width: 70%; height: 40%;"></textarea>
+    <button id="addTask" type="button">Add Comment</button>
+   </form>
+   <ul class="list"></ul>
 
     <script src="index.js"></script>
 </body>
