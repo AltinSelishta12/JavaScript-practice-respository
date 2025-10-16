@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ushtrime ne JavaScript</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         body{
             display: flex;
             justify-content: space-around;
@@ -14,13 +18,61 @@
             width: 100%;
             min-height: 100vh;
         }
+        .slider{
+            width: 100%;
+            position: relative;
+            height: 100vh;
+            max-width: 800px;
+            overflow: hidden;
+        }
+        .slides{
+            width: 100%;
+            height: 100%;
+        }
+        .slides img{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            object-fit: cover;
+            transition: opacity 0.8s linear;
+            
+        }
+        .slides img.active{
+            z-index: 1;
+            opacity: 1;
+        }
+        button{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 15px 10px;
+            border-radius: 50%;
+            z-index: 999;
+        }
+        .prev{
+            left: 10px;
+        }
+        .Next{
+            right: 10px;
+        }
     </style>
 </head>
 <body>
    
+    <div class="slider">
+        <div class="slides">
+            <img src="images/audi-black.png" alt="" class="active">
+            <img src="images/audi.png" alt="">
+            <img src="images/theme-1.jpg" alt="">
+            <img src="images/theme-2.jpg" alt="">
+        </div>
+        <button class="prev"><i class="ri-arrow-left-fill"></i></button>
+        <button class="Next"><i class="ri-arrow-right-fill"></i></button>
+    </div>
     
-    <button id="addBtn">Add one</button>
-    <p id="result">0</p>
 
     <script src="index.js"></script>
 </body>

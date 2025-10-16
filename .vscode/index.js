@@ -1,11 +1,20 @@
-const addBtn = document.querySelector("#addBtn");
+const images = document.querySelectorAll(".slides img");
 
-let result = 1;
+current = 0;
 
-addBtn.addEventListener("click", function(){
-    result = result - 2;
+function changeImage(next = true){
+    images[current].classList.remove("active");
 
-    document.getElementById("result").innerHTML = result;
-})
+    if(true){
+        current = (current + 1) % images.length;
+    }
+    else{
+        current = (current - 1 + images.length) % images.length;
+    }
+    images[current].classList.add("active");
+}
 
+document.querySelector(".Next").addEventListener("click", () => changeImage(true));
+document.querySelector(".prev").addEventListener("click", () => changeImage(false));
 
+setInterval(() => changeImage(true), 8000);
