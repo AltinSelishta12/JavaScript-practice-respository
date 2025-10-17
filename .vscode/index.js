@@ -1,20 +1,24 @@
-const images = document.querySelectorAll(".slides img");
+const gallery = document.querySelectorAll(".slides");
 
-current = 0;
+let Slide = 0
 
-function changeImage(next = true){
-    images[current].classList.remove("active");
+function ChangeImage (next = true){
+    gallery[Slide].classList.remove("active");
 
-    if(true){
-        current = (current + 1) % images.length;
+    if(next){
+        Slide = (Slide + 1) % gallery.length;
     }
     else{
-        current = (current - 1 + images.length) % images.length;
+        Slide = (Slide - 1 + gallery.length) % gallery.length;
     }
-    images[current].classList.add("active");
+    gallery[Slide].classList.add("active");
 }
 
-document.querySelector(".Next").addEventListener("click", () => changeImage(true));
-document.querySelector(".prev").addEventListener("click", () => changeImage(false));
+document.querySelector(".next").addEventListener("click", function(){
+    ChangeImage(true);
+});
+document.querySelector(".prev").addEventListener("click", function(){
+    ChangeImage(false)
+});
 
-setInterval(() => changeImage(true), 8000);
+setInterval(() => ChangeImage(true), 8000);

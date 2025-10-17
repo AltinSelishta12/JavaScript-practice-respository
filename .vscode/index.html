@@ -6,6 +6,9 @@
     <title>Ushtrime ne JavaScript</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Agdasima:wght@400;700&family=Anta&family=Audiowide&family=Bebas+Neue&family=Bungee&family=Content:wght@400;700&family=Convergence&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Dancing+Script:wght@400..700&family=Darker+Grotesque:wght@300..900&family=Geostar+Fill&family=Gidugu&family=Great+Vibes&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Italiana&family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lobster&family=Manrope:wght@200..800&family=New+Amsterdam&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Orbitron:wght@400..900&family=Oswald:wght@200..700&family=Oxanium:wght@200..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Petit+Formal+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prosto+One&family=Questrial&family=Raleway:ital,wght@0,100..900;1,100..900&family=Rationale&family=Red+Rose:wght@300..700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Vinyl&family=Russo+One&family=Saira:ital,wght@0,100..900;1,100..900&family=Smooch&family=Sora:wght@100..800&family=Syncopate:wght@400;700&family=Train+One&family=WDXL+Lubrifont+TC&family=Zen+Tokyo+Zoo&display=swap');
+
         *{
             margin: 0;
             padding: 0;
@@ -20,58 +23,149 @@
         }
         .slider{
             width: 100%;
-            position: relative;
             height: 100vh;
-            max-width: 800px;
+            position: relative;
             overflow: hidden;
         }
         .slides{
             width: 100%;
             height: 100%;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: opacity 1s linear;
+        }
+        .slides.active{
+          opacity: 1;
+
         }
         .slides img{
             width: 100%;
             height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 0;
             object-fit: cover;
-            transition: opacity 0.8s linear;
-            
         }
-        .slides img.active{
-            z-index: 1;
-            opacity: 1;
+        .slides-header{
+            position: absolute;
+            top: 35%;
+            left: 10%;
+        }
+        .slides-header h2{
+            font-size: 5rem;
+            color: #fff;
+            font-family: "Audiowide", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .slides-text{
+            position: absolute;
+            top: 55%;
+            left: 10%;
+            width: 60%;
+        }
+        .slides-text p{
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 0.8rem;
+        }
+        .slides-btn{
+            position: absolute;
+            top: 74%;
+            left: 10%;
+            z-index: 22;
+        }
+        .slides-btn a{
+            color: #fcf7f7;
+            background-color: #fff3f33a;
+            padding: 15px 35px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+        }
+        .slides-btn a:hover{
+            background-color: #0000002a;
+            border: 1px solid white;
+            transition: 0.3s linear;
         }
         button{
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            padding: 15px 10px;
-            border-radius: 50%;
-            z-index: 999;
+            background-color: #ffffff27;
+            color: #fff;
+            width: 65px;
+            height: 65px;
+            border: 1px solid white;
         }
         .prev{
             left: 10px;
         }
-        .Next{
+        .next{
             right: 10px;
+        }
+
+        @media(max-width:480px){
+            .slider{
+                position: relative;
+            }
+            .slides-header{
+                width: 100%;
+            }
+           .slides-header h2{
+                font-size: 2rem;
+                position: absolute;
+                left: 5%;
+           }
+           .slides-text{
+                position: absolute;
+                top: 45%;
+                width: 80%;
+           }
+           .slides-text p{
+                font-size: 0.7rem;
+                text-align: justify;
+           }
+           .slides-btn{
+            position: absolute;
+            top: 65%;
+           }
         }
     </style>
 </head>
 <body>
    
-    <div class="slider">
-        <div class="slides">
-            <img src="images/audi-black.png" alt="" class="active">
-            <img src="images/audi.png" alt="">
-            <img src="images/theme-1.jpg" alt="">
-            <img src="images/theme-2.jpg" alt="">
-        </div>
-        <button class="prev"><i class="ri-arrow-left-fill"></i></button>
-        <button class="Next"><i class="ri-arrow-right-fill"></i></button>
+   <div class="slider">
+    <div class="slides active" >
+         <img src="images/golf-exterior.jpg" alt="">
+         <div class="slides-header">
+           <h2>Golf 8 Exterior</h2>
+         </div>
+         <div class="slides-text">
+            <p>The exterior of the Volkswagen Golf 8 GTI embodies a perfect balance between sportiness and sophistication. Its sharp, aerodynamic lines and wider stance give it a bold, dynamic presence on the road, while signature GTI elements—like the red stripe across the grille, honeycomb air intakes, and aggressive front bumper—highlight its performance heritage.</p>
+         </div>
+         <div class="slides-btn">
+            <a class="exterior-btn" href="">EXTERIOR</a>
+         </div>
     </div>
+    <!--==========-->
+    <div class="slides">
+         <img src="images/golf-interior.jpg" alt="">
+         <div class="slides-header">
+           <h2>Golf 8 Interior</h2>
+         </div>
+         <div class="slides-text">
+            <p>The Volkswagen Golf 8 GTI is a modern icon of performance and practicality, blending everyday usability with exhilarating driving dynamics. Under the hood, it features a turbocharged 2.0-liter TSI engine that delivers sharp power and instant throttle response, paired with either a precise manual or a quick-shifting DSG gearbox.</p>
+         </div>
+         <div class="slides-btn">
+            <a href="">INTERIOR</a>
+         </div>
+    </div>
+    <button class="prev"><i class="ri-arrow-left-fill"></i></button>
+    <button class="next"><i class="ri-arrow-right-fill"></i></button>
+   </div>
     
 
     <script src="index.js"></script>
